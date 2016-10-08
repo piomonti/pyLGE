@@ -4,7 +4,6 @@
 #
 
 import numpy, os, pandas, math
-os.chdir('/media/ricardo/1401-1FFE/Documents/Writing/LGE/v1/Code')
 from SparseLDA import *
 from OneVsRestLDAClassifiers import *
 from sklearn.preprocessing import scale

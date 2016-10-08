@@ -7,7 +7,6 @@
 import numpy, os, pandas
 import cPickle as pickle
 import pylab as plt
-os.chdir('/media/ricardo/1401-1FFE/Documents/Writing/LGE/v1/Code')
 from pyLGE_02 import *
 
 

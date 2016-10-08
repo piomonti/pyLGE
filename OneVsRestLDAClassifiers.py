@@ -5,7 +5,6 @@
 #
 
 import numpy, os
-os.chdir('/media/ricardo/1401-1FFE/Documents/Writing/LGE/v1/Code')
 from SparseLDA import *
 from sklearn.linear_model import LogisticRegression # will perform one vs all for us
 from sklearn.metrics import confusion_matrix

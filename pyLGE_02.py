@@ -9,7 +9,6 @@
 import numpy, os
 from sklearn.preprocessing import scale
 from sklearn.decomposition import PCA
-os.chdir('/media/ricardo/1401-1FFE/Documents/Writing/LGE/v1/Code')
 from SpectralFunctions import *
 from CrossValidateSLDA import *
 from OneVsRestLDAClassifiers import *
