@@ -33,8 +33,8 @@ ClassVec[ (tID >= 100) & (tID <= 200), 1] = 1
 ClassFull = numpy.tile( ClassVec.T, len(Nets)).T
 
 # now run embedding:
-self = LGE(Adj=Nets, EmbedMethod='LDA', classID=ClassFull) 
-ResLDA = self.embed()
+Llda = LGE(Adj=Nets, EmbedMethod='LDA', classID=ClassFull) 
+ResLDA = Llda.embed()
 
 plt.plot( ResLDA[1].mean(axis=1), label='In-sample embedding')
 plt.plot( ResLDA[2].mean(axis=1), label='Out-of-sample embedding')

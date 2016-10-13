@@ -99,7 +99,7 @@ class LGE():
 			pca = PCA(n_components=self.k)
 			PCs = pca.fit(self.Ltrain)
 			
-			return PCs.components_, PCs.transform(self.Ltrain).reshape(( self.n, -1), order='F'), PCs.transform(self.Ltest).reshape((self.n, -1), order='F')
+			return PCs.components_, PCs.transform(self.Ltrain).reshape(( self.n, -1, self.k), order='F'), PCs.transform(self.Ltest).reshape((self.n, -1, self.k), order='F')
 
 		if self.EmbedMethod=='LDA':
 			print 'Running LDA-driven embedding'
@@ -108,7 +108,7 @@ class LGE():
 				self.Laplacian = self.getLaplacianMatrix()
 			
 			if self.lamRange==None:
-				self.lamRange = numpy.linspace(.1, .8, 10) # default
+				self.lamRange = numpy.linspace(.01, .1, 10) # default
 
 			if self.stabPercent==None:
 				self.stabPercent = .5 # default
@@ -130,7 +130,7 @@ class LGE():
 			self.Ltrain = self.Laplacian[ :int(self.Laplacian.shape[0]/2), screenIDs]
 			self.Ltest = self.Laplacian[ int(self.Laplacian.shape[0]/2):, screenIDs]
 			SLDA = numpy.zeros(( self.Laplacian.shape[1], 1))
-			SLDA[screenIDs,] = SparseLDA(Y=self.classID[:int(self.Laplacian.shape[0]/2)], X=self.Ltrain, alpha=.05, l1_ratio=1) # l1_ratio is ratio of l1 to l2 reg, which we always set to 1 for sparsity
+			SLDA[screenIDs,] = SparseLDA(Y=self.classID[:int(self.Laplacian.shape[0]/2)], X=self.Ltrain, alpha=.005, l1_ratio=1) # l1_ratio is ratio of l1 to l2 reg, which we always set to 1 for sparsity
 
 			return SLDA, numpy.dot(self.Ltrain, SLDA[screenIDs,]).reshape((self.n, -1), order='F'), numpy.dot(self.Ltest, SLDA[screenIDs,]).reshape((self.n, -1), order='F')
 	
