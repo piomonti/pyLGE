@@ -40,4 +40,4 @@ Llda = LGE(Adj=Nets, EmbedMethod='LDA', classID=ClassFull)
 ResLDA = Llda.embed()
 ```
 
-![alt text](https://raw.githubusercontent.com/piomonti/pyLGE/blob/master/ExampleFig.png "")
+![alt text](https://raw.githubusercontent.com/piomonti/pyLGE/blob/master/ExampleFig.png"")
